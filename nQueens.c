@@ -1,4 +1,3 @@
-#include <assert.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,7 +8,6 @@
 
 bool validQueen(int* board, int r, int qC);
 int* boardCopy(int* board, int boardSize);
-int* arrayCpy(int* s, int l);
 
 bool validQueen(int* board, int r, int qC) {
     for (int i=0; i<r; i++) {
@@ -37,14 +35,5 @@ int* boardCopy(int* board, int boardSize) {
     int* r = calloc(boardSize, sizeof(int));
     if (r == NULL) Assert(false, __func__, "calloc error");
     bcopy(board, r, boardSize*sizeof(int));
-    return r;
-}
-int* arrayCpy(int* s, int l) {
-    int* r = malloc(sizeof(int)*l);
-    if (r==NULL) assert(false);
-    int i;
-    for (i=0; i<l; i++) {
-        r[i] = s[i];
-    }
     return r;
 }
